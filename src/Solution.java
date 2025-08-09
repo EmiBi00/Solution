@@ -1,7 +1,4 @@
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Solution {
 
@@ -88,5 +85,24 @@ public class Solution {
             }
         }
         return transposeMatrix;
+    }
+    public boolean digitCount(String num) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < num.length(); i++) {
+            int zahl = num.charAt(i) - '0';
+            if (map.containsKey(zahl)) {
+                int wert = map.get(zahl);
+                map.put(zahl, wert + 1);
+            } else {
+                map.put(zahl, 1);
+            }
+            // map.put(zahl, map.getOrDefault(zahl) + 1); Ist das Gleiche wie das If Else drüber
+        }
+        for (int i = 0; i < num.length(); i++) {
+            int current = num.charAt(i) - '0';
+            int wert = map.getOrDefault(i, 0);
+            if (current != wert) return false;
+        }
+        return true;
     }
 }
