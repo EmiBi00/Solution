@@ -105,4 +105,24 @@ public class Solution {
         }
         return true;
     }
+
+    public char findTheDifference(String s, String t) {
+        Map<Character, Integer> mapS = new HashMap<>();
+        Map<Character, Integer> mapT = new HashMap<>();
+        int i = 0, j = 0;
+        while (i < s.length() || j < t.length()) {
+            if (i < s.length()) {
+                mapS.put(s.charAt(i), mapS.getOrDefault(s.charAt(i), 0) + 1);
+            }
+            if (j < t.length()) {
+                mapT.put(t.charAt(j), mapT.getOrDefault(t.charAt(j), 0) + 1);
+            }
+            i++;
+            j++;
+        }
+        for (Character c : mapT.keySet()) {
+            if (!mapS.containsKey(c) || mapS.get(c) != mapT.get(c)) return c;
+        }
+        return ' ';
+    }
 }
