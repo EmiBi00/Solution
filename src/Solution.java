@@ -125,4 +125,16 @@ public class Solution {
         }
         return ' ';
     }
+
+    public int addDigits(int num) {
+        while (num > 9) {
+            int ziffern = 0;
+            while (num != 0) {
+                ziffern += num % 10;
+                num /= 10;
+            }
+            num = ziffern;
+        }
+        return num;
+    }
 }
