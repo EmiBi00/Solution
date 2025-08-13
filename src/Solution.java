@@ -137,4 +137,19 @@ public class Solution {
         }
         return num;
     }
+    public String decodeMessage(String key, String message) {
+        Map<Character, Character> alphabet = new HashMap<>();
+        alphabet.put(' ', ' ');
+        char[] output = new char[message.length()];
+        char c = 'a';
+        for (char buchstabe : key.toCharArray()) {
+            if (!alphabet.containsKey(buchstabe) && buchstabe != ' ') {
+                alphabet.put(buchstabe, c++);
+            }
+        }
+        for (int i = 0; i < message.length(); i++) {
+            output[i] = alphabet.get(message.charAt(i));
+        }
+        return new String(output);
+    }
 }
