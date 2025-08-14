@@ -152,4 +152,21 @@ public class Solution {
         }
         return new String(output);
     }
+    public int smallestIndex(int[] nums) {
+        int output = -1;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            int sumdigits = 0;
+            int n = nums[i];
+            while (n > 0) {
+                sumdigits += n % 10;
+                n /= 10;
+            }
+            if (sumdigits == i & min > sumdigits) {
+                output = sumdigits;
+                min = sumdigits;
+            }
+        }
+        return output;
+    }
 }
