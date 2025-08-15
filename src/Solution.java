@@ -169,4 +169,27 @@ public class Solution {
         }
         return output;
     }
+    public int findGCD(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        int output = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < min) {
+                min = nums[i];
+            }
+            if (nums[i] > max) {
+                max = nums[i];
+            }
+        }
+        for (int i = 1; i <= min; i++) {
+            int zwischen = 0;
+            if (min % i == 0 && max % i == 0) {
+                zwischen = i;
+            }
+            if (zwischen > output) {
+                output = zwischen;
+            }
+        }
+        return output;
+    }
 }
