@@ -192,4 +192,28 @@ public class Solution {
         }
         return output;
     }
+    public boolean halvesAreAlike(String s) {
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < (s.length() / 2); i++ ) {
+            char zwischen = s.charAt(i);
+            boolean isVowel = helper(zwischen);
+            if (isVowel) {
+                a++;
+            }
+        }
+        for (int i = (s.length() / 2); i < s.length(); i++){
+            char zwischen = s.charAt(i);
+            boolean isVowel = helper(zwischen);
+            if(isVowel) {
+                b++;
+            }
+        }
+
+        return a == b;
+    }
+    public boolean helper(char z) {
+        String vowels = "AaEeOoIiUu";
+        return vowels.contains(String.valueOf(z));
+    }
 }
