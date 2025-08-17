@@ -216,4 +216,18 @@ public class Solution {
         String vowels = "AaEeOoIiUu";
         return vowels.contains(String.valueOf(z));
     }
+    public boolean divideArray(int[] nums) {
+        boolean output = true;
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            counter.put(nums[i], counter.getOrDefault(nums[i], 0) + 1);
+        }
+        Set<Integer> jani = counter.keySet();
+        for(int key : jani) {
+            if (counter.get(key) % 2 != 0) {
+                return false;
+            }
+        }
+        return output;
+    }
 }
