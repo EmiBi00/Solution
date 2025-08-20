@@ -237,4 +237,20 @@ public class Solution {
         }
         return result;
     }
+
+    public int vowelStrings(String[] words, int left, int right) {
+        int output = 0;
+        for (int i = left; i <= right; i++) {
+            char buchstabe1 = words[i].charAt(0);
+            char buchstabe2 = words[i].charAt(words[i].length() - 1);
+            if (helper2(buchstabe1) && helper2(buchstabe2)) {
+                output++;
+            }
+        }
+        return output;
+    }
+    public boolean helper2(char z) {
+        String vowels = "AaEeOoIiUu";
+        return vowels.contains(String.valueOf(z));
+    }
 }
