@@ -253,4 +253,36 @@ public class Solution {
         String vowels = "AaEeOoIiUu";
         return vowels.contains(String.valueOf(z));
     }
+    public String reformatDate(String date) {
+        String[] words = date.split(" ");
+        String day = "", month = "", year = "";
+
+        Map<String, String> months = new HashMap<>();
+        months.put("Jan", "01");
+        months.put("Feb", "02");
+        months.put("Mar", "03");
+        months.put("Apr", "04");
+        months.put("May", "05");
+        months.put("Jun", "06");
+        months.put("Jul", "07");
+        months.put("Aug", "08");
+        months.put("Sep", "09");
+        months.put("Oct", "10");
+        months.put("Nov", "11");
+        months.put("Dec", "12");
+
+        // Tag (erste Komponente, z. B. "20th" oder "6th")
+        day = words[0].replaceAll("\\D", "");     // nur Ziffern
+        if (day.length() == 1) {
+            day = "0" + day;                     // zweistellig machen
+        }
+
+        // Monat (zweite Komponente, z. B. "Oct")
+        month = months.get(words[1]);
+
+        // Jahr (dritte Komponente, z. B. "2052")
+        year = words[2];
+
+        return year + "-" + month + "-" + day;
+    }
 }
