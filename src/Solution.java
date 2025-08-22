@@ -285,4 +285,31 @@ public class Solution {
 
         return year + "-" + month + "-" + day;
     }
+
+    public int findCenter(int[][] edges) {
+        Map<Integer, Integer> ordner = new HashMap<>();
+        for (int[] edge : edges) {
+            ordner.put(edge[0], ordner.getOrDefault(edge[0], 0) + 1);
+            ordner.put(edge[1], ordner.getOrDefault(edge[1], 0) + 1);
+        }
+        Set<Integer> janNichtSoTief = ordner.keySet();
+        for (int key : janNichtSoTief) {
+            if (ordner.get(key) > 1) {
+                return key;
+            }
+        }
+        return -1;
+    }
+
+    public int findCenterEasier(int[][] edges) {
+        boolean[] found = new boolean[edges.length + 1];
+        for (int[] edge : edges) {
+            int u = edge[0], v = edge[1];
+            if (found[u - 1]) return u;
+            if (found[v - 1]) return v;
+            found[u - 1] = true;
+            found[v - 1] = true;
+        }
+        return -1;
+    }
 }
