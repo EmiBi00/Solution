@@ -331,4 +331,22 @@ public class Solution {
         }
         return false;
     }
+
+    public TreeNode searchBST(TreeNode root, int val) {
+        LinkedList<TreeNode> zahlen = new LinkedList<>();
+        zahlen.add(root);
+        while (!zahlen.isEmpty()) {
+            TreeNode current = zahlen.pop(); // gib mir erstes Element und lösche es aus Liste
+            if (current.val == val) {
+                return current;
+            }
+            if (current.left != null) {
+               zahlen.add(current.left);
+            }
+            if (current.right != null) {
+                zahlen.add(current.right);
+            }
+        }
+        return null;
+    }
 }
