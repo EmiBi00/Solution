@@ -364,4 +364,24 @@ public class Solution {
 
         return increasing || decreasing;
     }
+    public int furthestDistanceFromOrigin(String moves) {
+        int countL = 0;
+        int countR = 0;
+        int count_ = 0;
+        for (int i = 0; i < moves.length(); i++) {
+            if (moves.charAt(i) == 'L') {
+                countL++;
+            } else if (moves.charAt(i) == 'R') {
+                countR++;
+            } else {
+                count_++;
+            }
+
+        }
+        if (countL > countR) {
+            return Math.abs(countR - (countL + count_));
+        } else {
+            return -countL + countR + count_;
+        }
+    }
 }
