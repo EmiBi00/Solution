@@ -384,4 +384,15 @@ public class Solution {
             return -countL + countR + count_;
         }
     }
+    public int returnToBoundaryCount(int[] nums) {
+        int output = 0;
+        int current = 0;
+        for (int i = 0; i < nums.length; i++) {
+            current = current + nums[i];
+            if (current == 0) {
+                output++;
+            }
+        }
+        return output;
+    }
 }
