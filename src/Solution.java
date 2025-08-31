@@ -395,4 +395,21 @@ public class Solution {
         }
         return output;
     }
+    public int totalMoney(int n) {
+        int output = 0;
+        int monday = 0;
+        int current = monday;
+        for (int i = 0; i < n; i++) {
+            if (i % 7 == 0) {
+                monday++;
+                output += monday;
+                current = monday + 1;
+            } else {
+                output += current;
+                current++;
+            }
+        }
+
+        return output;
+    }
 }
