@@ -412,4 +412,29 @@ public class Solution {
 
         return output;
     }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; } // Konstruktor, mit dem man ListNode erstellt
+    }
+
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
+        ListNode start = head;
+        while (start != null && start.next != null) {
+            ListNode folgeknoten = start.next;
+            ListNode neuerknoten = new ListNode(hilfsfunktion(start.val, folgeknoten.val), folgeknoten);
+            start.next = neuerknoten;
+            start = folgeknoten; // start aktualisieren für neue Iteration mit neuen Werten
+        }
+        return head;
+    }
+    private int hilfsfunktion(int a, int b) {
+        if (b==0) {
+            return a;
+        }
+        return hilfsfunktion(b, a % b);
+    }
 }
