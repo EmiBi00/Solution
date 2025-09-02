@@ -1,3 +1,4 @@
+import java.beans.PropertyEditorSupport;
 import java.util.*;
 
 public class Solution {
@@ -436,5 +437,39 @@ public class Solution {
             return a;
         }
         return hilfsfunktion(b, a % b);
+    }
+    public List<String> commonChars(String[] words) {
+        Map<Character, Integer> ordner = new HashMap<>();
+        String tmp = words[0];
+        for (int i = 0; i < tmp.length(); i++) {
+            char c = tmp.charAt(i);
+            ordner.put(c, ordner.getOrDefault(c, 0) + 1);
+        }
+        for (int i = 1; i < words.length; i++) {
+            String s = words[i];
+            Map<Character, Integer> compareMap = new HashMap<>();
+            for (int j = 0; j < s.length(); j++) {
+                char c = s.charAt(j);
+                compareMap.put(c, compareMap.getOrDefault(c, 0) + 1);
+            }
+
+            Map<Character, Integer> resultMap = new HashMap<>();
+            for (char c : ordner.keySet()) {
+                if (!compareMap.containsKey(c)) {
+                    continue; // überspringt diese Iteration
+                }
+                int min = Math.min(ordner.get(c), compareMap.get(c));
+                resultMap.put(c, min);
+            }
+            ordner = resultMap;
+        }
+
+        List<String> output = new ArrayList<>();
+        for (Character c : ordner.keySet()) {
+            for (int i = 0; i < ordner.get(c); i++) {
+                output.add(String.valueOf(c));
+            }
+        }
+        return output;
     }
 }
