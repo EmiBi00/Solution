@@ -486,4 +486,13 @@ public class Solution {
         }
         return output;
     }
+    public int prefixCount(String[] words, String pref) {
+        int output = 0;
+        for (String word : words) {
+            if (word.startsWith(pref)) {
+                output++;
+            }
+        }
+        return output;
+    }
 }
