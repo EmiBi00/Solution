@@ -495,4 +495,24 @@ public class Solution {
         }
         return output;
     }
+    public void reverseString(char[] s) { //void returnt nichts, da pass by reference d.h. der speicherplatz wird verändert und bei Testaufruf in Leetcode wird dann der "neue" char Array aufgerufen
+        for (int i = 0; i < s.length / 2; i++) {
+            char begin = s[i];
+            char end = s[s.length - 1 - i];
+            s[i] = end;
+            s[s.length - 1 - i] = begin;
+        }
+    }
+
+    public void reverseString2(char[] s) {
+        int i = 0;
+        int j = s.length - 1;
+        while (i < j) {
+            char tmp = s[i];
+            s[i] = s[j];
+            s[j] = tmp;
+            i++;
+            j--;
+        }
+    }
 }
