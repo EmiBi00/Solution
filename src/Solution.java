@@ -515,4 +515,25 @@ public class Solution {
             j--;
         }
     }
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        int [] ans  = new int [2];
+        Map <Integer, Integer> ordner = new HashMap<>();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                ordner.put(grid[i][j], ordner.getOrDefault(grid[i][j], 0) + 1 );
+            }
+        }
+        Set<Integer> jani = ordner.keySet();
+        for (int key : jani) {
+            if (ordner.get(key) == 2) {
+                ans[0] = key;
+            }
+        }
+        for (int i = 1; i <= grid.length * grid.length; i++) {
+            if (!ordner.containsKey(i)) {
+                ans[1] = i;
+            }
+        }
+        return ans;
+    }
 }
