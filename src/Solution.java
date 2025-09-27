@@ -550,4 +550,32 @@ public class Solution {
 
         return new1 + new2;
     }
+    public int numUniqueEmails(String[] emails) {
+        Set<String> set = new HashSet<>();
+        for (String email : emails) {
+            StringBuilder sb = new StringBuilder();
+            boolean beforeAt = true;
+            boolean plusFound = false;
+            for (int j = 0; j < email.length(); j++) {
+                char buchstabe = email.charAt(j);
+
+                if (buchstabe == '+') {
+                    plusFound = true;
+                }
+                if (buchstabe == '@') {
+                    beforeAt = false;
+                }
+                if (plusFound && beforeAt) {
+                    continue;
+                }
+                if (beforeAt && buchstabe == '.') {
+                    continue;
+                }
+
+                sb.append(buchstabe);
+            }
+            set.add(sb.toString());
+        }
+        return set.size();
+    }
 }
