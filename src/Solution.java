@@ -578,4 +578,31 @@ public class Solution {
         }
         return set.size();
     }
+    public boolean checkRecord(String s) {
+        int absent = 0;
+        int late = 0;
+        for(int i = 0; i < s.length(); i++) {
+            char buchstabe = s.charAt(i);
+            if (late >= 3 || absent >= 2) {
+                return false;
+            }
+            if (buchstabe == 'L') {
+                late++;
+                continue;
+            } else if (buchstabe == 'A') {
+                absent++;
+            }
+            late = 0;
+
+        }
+        return late < 3 && absent < 2;
+    }
+
+    public boolean checkRecordEasy(String s) {
+        if (s.contains("LLL") || s.indexOf("A") != s.lastIndexOf("A")) {
+            return false;
+        }
+        return true;
+        // return !s.contains("LLL") && s.indexOf("A") == s.lastIndexOf("A");
+    }
 }
