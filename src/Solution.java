@@ -624,4 +624,20 @@ public class Solution {
         }
         return reshapeM;
     }
+    public boolean uniqueOccurrences(int[] arr) {
+        Map<Integer, Integer> zahlordner = new HashMap<>();
+        for (int i = 0;  i < arr.length; i++) {
+            zahlordner.put(arr[i], zahlordner.getOrDefault(arr[i], 0) +1);
+        }
+        Set<Integer> jani = zahlordner.keySet();
+        List<Integer> seen = new ArrayList<>();
+        for (int key : jani) {
+            int freq = zahlordner.get(key);
+            if (seen.contains(freq)){
+                return false;
+            }
+            seen.add(freq);
+        }
+        return true;
+    }
 }
