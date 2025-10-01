@@ -640,4 +640,24 @@ public class Solution {
         }
         return true;
     }
+    public boolean judgeCircle(String moves) {
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < moves.length(); i++) {
+            char buchstabe = moves.charAt(i);
+            if (buchstabe == 'R') {
+                x++;
+            }
+            if (buchstabe == 'U') {
+                y++;
+            }
+            if (buchstabe == 'L') {
+                x--;
+            }
+            if (buchstabe == 'D') {
+                y--;
+            }
+        }
+        return x == 0 && y == 0;
+    }
 }
