@@ -673,4 +673,32 @@ public class Solution {
         }
         return true;
     }
+    public String clearDigits(String s) { // z.B. "cb34"
+        boolean digitFound = true;
+        while (digitFound) {
+            digitFound = false;
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                if ('0' <= c && c <= '9') {
+                    // 1. s == "cb34", c == 3, i = 2
+                    //      => s = s.substring(0, 1) + s.substring(3)
+                    //      => s = "c" + "4"
+                    //      => s = "c4"
+                    // 2. s = "c4", c == "4", i = 1
+                    //      => s = s.substring(0, 0) + s.substring(2)
+                    //      => s = "" + ""
+                    //      => s = ""
+                    if (i - 1 >= 0) {
+                        // "abc" -> "abc".substring(0, 1) -> "a"
+                        // "abc" -> "abc".substring(0, 2) => "ab"
+                        // "abc" -> "abc".substring(1) => "bc"
+                        s = s.substring(0, i - 1) + s.substring(i + 1);
+                        digitFound = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return s;
+    }
 }
