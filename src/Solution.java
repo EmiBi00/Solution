@@ -712,4 +712,26 @@ public class Solution {
         }
         return output;
     }
+    public boolean checkString(String s) {
+        int a = -1;
+        int b = -1;
+        for (int i = 0; i < s.length(); i++) {
+            char buchstabe = s.charAt(i);
+            if (buchstabe == 'a') {
+                a = i;
+            } else if (b == -1) {
+                b = i;
+            }
+        }
+        return a < b || b == -1; // return true wenn a < b
+    }
+
+    public boolean checkStringFast(String s) {
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) == 'b' && s.charAt(i + 1) == 'a') { // oder contains Methode nehmen
+                return false;
+            }
+        }
+        return true;
+    }
 }
