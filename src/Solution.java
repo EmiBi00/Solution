@@ -734,4 +734,20 @@ public class Solution {
         }
         return true;
     }
+    public int majorityElement(int[] nums) {
+        int output = 0;
+        Map<Integer, Integer> zahlordner = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            zahlordner.put(nums[i], zahlordner.getOrDefault(nums[i], 0) + 1);
+        }
+        Set<Integer> jani = zahlordner.keySet();
+        int max = Integer.MIN_VALUE;
+        for (int key : jani) {
+            if (zahlordner.get(key) > max && zahlordner.get(key) > (nums.length / 2)) {
+                max = zahlordner.get(key);
+                output = key;
+            }
+        }
+        return output;
+    }
 }
