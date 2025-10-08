@@ -750,4 +750,20 @@ public class Solution {
         }
         return output;
     }
+    public int maxNumberOfBalloons(String text) {
+        int b = 0, a = 0, l = 0, o = 0, n = 0;
+
+        for (int i = 0; i < text.length(); i++) {
+            char buchstabe = text.charAt(i);
+            if (buchstabe == 'b') b++;
+            else if (buchstabe == 'a') a++;
+            else if (buchstabe == 'l') l++;
+            else if (buchstabe == 'o') o++;
+            else if (buchstabe == 'n') n++;
+        }
+        l /= 2;
+        o /= 2;
+        return Math.min(Math.min(Math.min(Math.min(b, a), l), o), n);
+    }
+
 }
