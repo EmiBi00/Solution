@@ -765,5 +765,19 @@ public class Solution {
         o /= 2;
         return Math.min(Math.min(Math.min(Math.min(b, a), l), o), n);
     }
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int output = 0;
+        int current = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                current++;
+                output = Math.max(output, current);
+            } else {
+                current = 0;
+            }
+        }
+        return output;
+    }
+
 
 }
