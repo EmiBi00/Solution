@@ -778,6 +778,16 @@ public class Solution {
         }
         return output;
     }
+    public int countPrefixes(String[] words, String s) {
+        int output = 0;
+        for (String w : words) {
+            if (s.startsWith(w)) {
+                output++;
+            }
+        }
+        return output;
+    }
+
 
 
 }
