@@ -805,4 +805,17 @@ public class Solution {
         }
         return count >= n;
     }
+    public String generateTheString(int n) {
+        String output = "";
+        for (int i = 0; i < n; i++) {
+            char a = 'a';
+            char b = 'b';
+            if ( i != n - 1 && n % 2 == 0) {
+                output += a;
+            } else {
+                output += b;
+            }
+        }
+        return output;
+    }
 }
