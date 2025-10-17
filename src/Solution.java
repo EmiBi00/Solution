@@ -831,4 +831,22 @@ public class Solution {
         }
         return min;
     }
+    public int gcdOfOddEvenSums(int n) {
+        int output = 0;
+        int even = 0;
+        int odd = 0;
+        for (int i = 1; i <= (n * 2); i++) {
+            if (i % 2 == 0) {
+                even += i;
+            } else {
+                odd += i;
+            }
+        }
+        for (int i = 1; i <= Math.max(even, odd); i++) {
+            if (even % i == 0 && odd % i == 0 && output < i) {
+                output = i;
+            }
+        }
+        return output;
+    }
 }
