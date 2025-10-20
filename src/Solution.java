@@ -857,4 +857,19 @@ public class Solution {
         }
         return true;
     }
+
+    public int sumOddLengthSubarrays(int[] arr) {
+        int ans = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int current = arr[i];
+            ans += current;
+            for (int j = i + 1; j < arr.length; j++) {
+                current += arr[j];
+                if ((j - i) % 2 == 0) {
+                    ans += current;
+                }
+            }
+        }
+        return ans;
+    }
 }
