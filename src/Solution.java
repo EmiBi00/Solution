@@ -880,4 +880,29 @@ public class Solution {
         }
         return arr;
     }
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> output = new ArrayList<>();
+        output.add(List.of(1));
+        if (numRows == 1) {
+            return output;
+        }
+        output.add(List.of(1, 1));
+        if (numRows == 2) {
+            return output;
+        }
+
+        for (int i = 2; i < numRows; i++) {
+            List<Integer> zwischen = new ArrayList<>();
+            zwischen.add(1);
+            List<Integer> prev = output.get(i - 1);
+            for (int j = 1; j < i; j++) { // exklusiv!!!
+                int a = prev.get(j - 1);
+                int b = prev.get(j);
+                zwischen.add(a + b);
+            }
+            zwischen.add(1);
+            output.add(zwischen);
+        }
+        return output;
+    }
 }
