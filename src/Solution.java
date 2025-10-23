@@ -905,4 +905,34 @@ public class Solution {
         }
         return output;
     }
+    public int garbageCollection(String[] garbage, int[] travel) {
+        int m = 0, g = 0, p = 0, collected = 0;
+        int mLast = -1, gLast = -1, pLast = -1;
+        for (int i = 0; i < garbage.length; i++) {
+            String stop = garbage[i];
+            collected += stop.length();
+            if (stop.contains("M")) {
+                mLast = i - 1;
+            }
+            if (stop.contains("G")) {
+                gLast = i - 1;
+            }
+            if (stop.contains("P")) {
+                pLast = i - 1;
+            }
+        }
+        for (int i = 0; i < travel.length; i++) {
+            int path = travel[i];
+            if (mLast >= i) {
+                m += path;
+            }
+            if (gLast >= i) {
+                g += path;
+            }
+            if (pLast >= i) {
+                p += path;
+            }
+        }
+        return m + g + p + collected;
+    }
 }
