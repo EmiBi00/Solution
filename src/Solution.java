@@ -1,6 +1,7 @@
 import java.beans.PropertyEditorSupport;
 import java.util.*;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Solution {
 
@@ -934,5 +935,13 @@ public class Solution {
             }
         }
         return m + g + p + collected;
+    }
+    public static int simpleArraySum(List<Integer> ar) {
+        // Write your code here
+        int output = 0;
+        for (Integer integer : ar) {
+            output += integer;
+        }
+        return output;
     }
 }
