@@ -944,4 +944,19 @@ public class Solution {
         }
         return output;
     }
+    public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+        List<Integer> output = new ArrayList<>();
+        output.add(0);
+        output.add(0);
+        for (int i = 0; i < a.size(); i++) {
+            int scoreAlice = a.get(i);
+            int scoreBob = b.get(i);
+            if (scoreAlice > scoreBob) {
+                output.set(0, output.get(0) + 1);
+            } else if (scoreAlice < scoreBob) {
+                output.set(1, output.get(1) + 1);
+            }
+        }
+        return output;
+    }
 }
