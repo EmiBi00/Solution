@@ -959,4 +959,14 @@ public class Solution {
         }
         return output;
     }
+    public static int diagonalDifference(List<List<Integer>> arr) {
+        // Write your code here
+        int firstdiagonal = 0;
+        int seconddiagonal = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            firstdiagonal += arr.get(i).get(i);
+            seconddiagonal += arr.get(i).get(arr.size() - 1 - i);
+        }
+        return Math.abs(firstdiagonal - seconddiagonal);
+    }
 }
