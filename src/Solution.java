@@ -969,4 +969,20 @@ public class Solution {
         }
         return Math.abs(firstdiagonal - seconddiagonal);
     }
+    public static int birthdayCakeCandles(List<Integer> candles) {
+        int max = Integer.MIN_VALUE;
+        Map<Integer, Integer> ordner = new HashMap<>();
+        for (int i = 0; i < candles.size(); i++) {
+            ordner.put(candles.get(i), ordner.getOrDefault(ordner.get(candles.get(i)), 0) + 1);
+        }
+        Set<Integer> jani = ordner.keySet();
+        for (int key : jani) {
+            if (key > max) {
+                max = key;
+            }
+        }
+        return ordner.get(max);
+
+    }
+
 }
