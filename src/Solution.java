@@ -984,5 +984,12 @@ public class Solution {
         return ordner.get(max);
 
     }
+    public static long aVeryBigSum(List<Long> ar) {
+        long output = 0L;
+        for (int i = 0; i < ar.size(); i++) {
+            output += ar.get(i);
+        }
+        return output;
+    }
 
 }
