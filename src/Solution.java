@@ -1020,5 +1020,19 @@ public class Solution {
         }
 
     }
+    public static void miniMaxSum(List<Integer> arr) {
+        Collections.sort(arr);
+        long sum_min = 0;
+        long sum_max = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            if (i > 0) {
+                sum_max += arr.get(i);
+            }
+            if (i < arr.size() - 1) {
+                sum_min += arr.get(i);
+            }
+        }
+        System.out.println(sum_min + " " + sum_max);
+    }
 
 }
