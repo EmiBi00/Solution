@@ -1034,5 +1034,25 @@ public class Solution {
         }
         System.out.println(sum_min + " " + sum_max);
     }
+    public static String timeConversion(String s) {
+        String meridian = s.substring(s.length() - 2);
+        String timePart = s.substring(0, s.length() - 2);
+
+        String[] parts = timePart.split(":");
+        int hour = Integer.parseInt(parts[0]);
+        String minute = parts[1];
+        String second = parts[2];
+        if (meridian.equals("AM")) {
+            if (hour == 12) {
+                hour = 0;
+            }
+        } else {
+            if (hour != 12) {
+                hour += 12;
+            }
+        }
+        String hourString = String.format("%02d", hour);
+        return hourString + ":" + minute + ":" + second;
+    }
 
 }
