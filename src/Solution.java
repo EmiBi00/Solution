@@ -1054,5 +1054,19 @@ public class Solution {
         String hourString = String.format("%02d", hour);
         return hourString + ":" + minute + ":" + second;
     }
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        List<Integer> output = new ArrayList<>();
+        for (int i = 0; i < grades.size(); i++) {
+            int zwischen = grades.get(i);
+            if (zwischen < 38) {
+                output.add(zwischen);
+            } else if (5 - (zwischen % 5) < 3) {
+                output.add(zwischen + (5 - (zwischen % 5)));
+            } else {
+                output.add(zwischen);
+            }
+        }
+        return output;
+    }
 
 }
