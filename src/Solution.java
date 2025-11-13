@@ -1056,8 +1056,7 @@ public class Solution {
     }
     public static List<Integer> gradingStudents(List<Integer> grades) {
         List<Integer> output = new ArrayList<>();
-        for (int i = 0; i < grades.size(); i++) {
-            int zwischen = grades.get(i);
+        for (int zwischen : grades) {
             if (zwischen < 38) {
                 output.add(zwischen);
             } else if (5 - (zwischen % 5) < 3) {
@@ -1067,6 +1066,30 @@ public class Solution {
             }
         }
         return output;
+    }
+    public static void countApplesAndOranges(int s, int t, int a, int b, List<Integer> apples, List<Integer> oranges) {
+        List <Integer> apples_position = new ArrayList<>();
+        List <Integer> oranges_position = new ArrayList<>();
+        int count_apples = 0;
+        int count_orange = 0;
+        for (Integer apple : apples) {
+            apples_position.add(a + apple);
+        }
+        for  (Integer orange : oranges) {
+            oranges_position.add(b + orange);
+        }
+        for (Integer house_apple : apples_position){
+            if (s <= house_apple && house_apple<=t) {
+                count_apples++;
+            }
+        }
+        for (int house_orange : oranges_position) {
+            if (s <= house_orange && house_orange <=t) {
+                count_orange++;
+            }
+        }
+        System.out.println(count_apples);
+        System.out.println(count_orange);
     }
 
 }
