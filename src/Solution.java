@@ -1091,5 +1091,22 @@ public class Solution {
         System.out.println(count_apples);
         System.out.println(count_orange);
     }
+    public static String kangaroo(int x1, int v1, int x2, int v2) {
+        String ja = "YES";
+        String nein = "NO";
+        if (v1 <= v2) {
+            return nein;
+        }
+        while (x1 < x2) {
+            x1 += v1;
+            x2 += v2;
+
+            if (x1 == x2) {
+                return ja;
+            }
+        }
+
+        return nein;
+    }
 
 }
