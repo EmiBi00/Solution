@@ -1120,5 +1120,24 @@ public class Solution {
         return output;
 
     }
+    public static int migratoryBirds(List<Integer> arr) {
+        Map <Integer,Integer> sort = new HashMap<>();
+        for (int i = 0; i < arr.size(); i++) {
+            sort.put(arr.get(i), sort.getOrDefault(arr.get(i), 0) + 1);
+        }
+        Set<Integer> jani = sort.keySet();
+        int max = Integer.MIN_VALUE;
+        int id = -1;
+        for (int key : jani) {
+            if (sort.get(key) > max) {
+                max = sort.get(key);
+                id = key;
+            } else if (sort.get(key) == max) {
+                id = Math.min(key, id);
+            }
+        }
+        return id;
+
+    }
 
 }
