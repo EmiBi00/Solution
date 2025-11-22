@@ -1153,5 +1153,23 @@ public class Solution {
             System.out.println(b - b_actual);
         }
     }
+    public static int pageCount(int n, int p) {
+        int front = 0;
+        int behind = 0;
+        for (int i = 1; i <= p; i += 2) {
+            if (i != p) {
+                front++;
+            }
+        }
+        for (int i = n; i >= p; i -= 2) {
+            if (n % 2 != 0 && p == i - 1) {
+                break;
+            }
+            if (i != p) {
+                behind++;
+            }
+        }
+        return Math.min(front, behind);
+    }
 
 }
