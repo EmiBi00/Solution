@@ -1171,5 +1171,22 @@ public class Solution {
         }
         return Math.min(front, behind);
     }
+    static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+        List <Integer> costs = new ArrayList<>();
+        for (int keyboard : keyboards) {
+            for (int drive : drives) {
+                if (keyboard + drive <= b){
+                    costs.add(keyboard + drive);
+                }
+            }
+        }
+        int max = -1;
+        for (int cost : costs) {
+            if (cost > max) {
+                max = cost;
+            }
+        }
+        return max;
+    }
 
 }
