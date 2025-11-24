@@ -1188,5 +1188,19 @@ public class Solution {
         }
         return max;
     }
+    public static int sockMerchant(int n, List<Integer> ar) {
+        Map<Integer,Integer> pair = new HashMap<>();
+        int output = 0;
+        for (int i = 0; i < ar.size(); i++) {
+            pair.put(ar.get(i), pair.getOrDefault(ar.get(i), 0) + 1);
+        }
+        Set <Integer> jani = pair.keySet();
+        for (int key : jani) {
+            if (pair.get(key) > 1) {
+                output += (pair.get(key) / 2);
+            }
+        }
+        return output;
+    }
 
 }
