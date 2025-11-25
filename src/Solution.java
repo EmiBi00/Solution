@@ -1202,5 +1202,18 @@ public class Solution {
         }
         return output;
     }
+    static String catAndMouse(int x, int y, int z) {
+        String catA = "Cat A";
+        String catB = "Cat B";
+        String mouse = "Mouse C";
+        if (Math.abs(x-z) < Math.abs(y-z)) {
+            return catA;
+        } else if (Math.abs(x-z) > Math.abs(y-z)) {
+            return catB;
+        } else {
+            return mouse;
+        }
+
+    }
 
 }
