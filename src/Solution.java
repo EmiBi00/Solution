@@ -1215,5 +1215,17 @@ public class Solution {
         }
 
     }
+    public static int hurdleRace(int k, List<Integer> height) {
+        int output = 0;
+        for (int hurdle : height) {
+            if (hurdle > output) {
+                output = hurdle;
+            }
+        }
+        if (k > output) {
+            return 0;
+        }
+        return output - k;
+    }
 
 }
