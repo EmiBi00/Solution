@@ -1227,5 +1227,20 @@ public class Solution {
         }
         return output - k;
     }
+    public static int designerPdfViewer(List<Integer> h, String word) {
+        List<Integer> heights = new ArrayList<>();
+        for (int i = 0; i < word.length(); i++) {
+            char buchstabe = word.charAt(i);
+            int index = buchstabe - 'a';
+            heights.add(h.get(index));
+        }
+        int max = Integer.MIN_VALUE;
+        for (int i : heights) {
+            if (i > max) {
+                max = i;
+            }
+        }
+        return max * word.length();
+    }
 
 }
