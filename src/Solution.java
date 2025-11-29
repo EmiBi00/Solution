@@ -1242,5 +1242,17 @@ public class Solution {
         }
         return max * word.length();
     }
+    public static String angryProfessor(int k, List<Integer> a) {
+        int count = 0;
+        for (int time: a) {
+            if (time <= 0){
+                count++;
+            }
+        }
+        if (count >= k) {
+            return "NO";
+        }
+        return "YES";
+    }
 
 }
