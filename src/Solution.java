@@ -1254,5 +1254,19 @@ public class Solution {
         }
         return "YES";
     }
+    public static int beautifulDays(int i, int j, int k) {
+        int output = 0;
+        for (int r = i; r <= j; r++) {
+            String zwischen = String.valueOf(r);
+            StringBuilder res = new StringBuilder();
+            res.append(zwischen);
+            res.reverse();
+            if (Math.abs(r - Integer.parseInt(res.toString())) % k == 0) {
+                output++;
+            }
+        }
+        return output;
+
+    }
 
 }
