@@ -1268,5 +1268,16 @@ public class Solution {
         return output;
 
     }
+    public static int viralAdvertising(int n) {
+        int output = 2;
+        int start = 2;
+        for (int i = 2; i <= n; i++) {
+            int zwischen = start * 3;
+            output += zwischen / 2;
+            start = zwischen / 2;
+        }
+        return output;
+
+    }
 
 }
