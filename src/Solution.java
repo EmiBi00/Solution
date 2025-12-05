@@ -1283,4 +1283,16 @@ public class Solution {
     public static int saveThePrisoner(int n, int m, int s) {
         return ((s - 1 + m - 1) % n) + 1;
     }
+    public static int findDigits(int n) {
+        String zahl = String.valueOf(n);
+        int count = 0;
+        for (int i = 0; i < zahl.length(); i++) {
+            char separat_number = zahl.charAt(i);
+            int translate = Character.getNumericValue(separat_number);
+            if (translate != 0 && n % translate == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
