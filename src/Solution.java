@@ -1295,4 +1295,12 @@ public class Solution {
         }
         return count;
     }
+    public static int squares(int a, int b) {
+        int start = (int) Math.ceil(Math.sqrt(a));
+        int end = (int) Math.floor(Math.sqrt(b));
+        if (end < start) {
+            return 0;
+        }
+        return end - start + 1;
+    }
 }
