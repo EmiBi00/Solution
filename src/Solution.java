@@ -1303,4 +1303,21 @@ public class Solution {
         }
         return end - start + 1;
     }
+    public static List<Integer> breakingRecords(List<Integer> scores) {
+        int max = scores.get(0);
+        int min = scores.get(0);
+        int maxCount = 0;
+        int minCount = 0;
+        for (int i : scores) {
+            if (max < i) {
+                max = i;
+                maxCount++;
+            }
+            if (min > i) {
+                min =  i;
+                minCount++;
+            }
+        }
+        return Arrays.asList(maxCount, minCount);
+    }
 }
