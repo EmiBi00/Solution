@@ -1367,5 +1367,27 @@ public class Solution {
     private static int lcm(int a, int b) {
         return a * (b / gcd(a, b));
     }
+    public static int birthday(List<Integer> s, int d, int m) {
+        int count = 0;
+        if (s.size() < m) {
+            return 0;
+        }
+        int windowSum = 0;
+        for (int i = 0; i < m; i++) {
+            windowSum += s.get(i);
+        }
+        if (windowSum == d) {
+            count++;
+        }
+        for (int i = m; i < s.size(); i++) {
+            windowSum += s.get(i);       // add new element
+            windowSum -= s.get(i - m);   // remove old element
+
+            if (windowSum == d) {
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
