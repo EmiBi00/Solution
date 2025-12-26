@@ -1389,5 +1389,22 @@ public class Solution {
         }
         return count;
     }
+    public static String dayOfProgrammer(int year) {
+        if (year == 1918) {
+            return "26.09.1918";
+        }
+
+        boolean isLeap;
+        if (year >= 1700 && year <= 1917) {
+            isLeap = (year % 4 == 0);
+        }
+        else {
+            isLeap = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+        }
+        String day = isLeap ? "12" : "13";
+
+        return day + ".09." + year;
+
+    }
 
 }
