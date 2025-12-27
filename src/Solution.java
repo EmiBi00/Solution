@@ -1406,5 +1406,21 @@ public class Solution {
         return day + ".09." + year;
 
     }
+    public static int countingValleys(int steps, String path) {
+        int start = 0;
+        int valley = 0;
+        for (int i = 0; i < path.length(); i++) {
+            char buchstabe = path.charAt(i);
+            if (buchstabe == 'D') {
+                start--;
+            } else {
+                start++;
+            }
+            if (buchstabe == 'U' && start == 0) {
+                valley++;
+            }
+        }
+        return valley;
+    }
 
 }
