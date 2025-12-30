@@ -1433,5 +1433,22 @@ public class Solution {
         }
         return height;
     }
+    public static long repeatedString(String s, long n) {
+        long multiply = n / s.length();
+        long countA = 0;
+        for (char c : s.toCharArray()) {
+            if (c == 'a') {
+                countA++;
+            }
+        }
+        long occurence = countA * multiply;
+        int over = (int) (n % s.length());
+        for (int i = 0; i < over; i++) {
+            if (s.charAt(i) == 'a') {
+                occurence++;
+            }
+        }
+        return occurence;
+    }
 
 }
