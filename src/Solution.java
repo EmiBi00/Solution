@@ -1465,5 +1465,13 @@ public class Solution {
 
         return maxLength;
     }
+    public static List<Integer> circularArrayRotation(List<Integer> a, int k, List<Integer> queries) {
+        List<Integer> ans = new ArrayList<>();
+        for (int value : queries) {
+            int index = (value + a.size() - (k % a.size())) % a.size();
+            ans.add(a.get(index));
+        }
+        return ans;
+    }
 
 }
