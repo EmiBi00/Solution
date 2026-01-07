@@ -1480,5 +1480,11 @@ public class Solution {
         }
         return or * (1 << (nums.length - 1));
     }
+    public String reversePrefix(String s, int k) {
+        String prefix = s.substring(0, k);
+        String reversedPrefix = new StringBuilder(prefix).reverse().toString();
+        String rest = s.substring(k);
+        return reversedPrefix + rest;
+    }
 
 }
